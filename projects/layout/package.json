@@ -1,0 +1,38 @@
+{
+  "name": "@fireng/layout",
+  "version": "1.0.0",
+  "description": "Angular directives for responsive layout and visual adjustments using Fireng breakpoints.",
+  "keywords": [
+    "angular",
+    "responsive",
+    "layout",
+    "flexbox",
+    "grid",
+    "visibility",
+    "spacing",
+    "typography",
+    "breakpoints",
+    "fireng"
+  ],
+  "author": {
+    "name": "Bhanuka Dassanayake",
+    "email": "bhanukadassanayake@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BhanukaDev/fireng.git",
+    "directory": "projects/layout"
+  },
+  "peerDependencies": {
+    "@angular/common": "^18.2.0",
+    "@angular/core": "^18.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}
