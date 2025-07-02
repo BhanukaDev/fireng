@@ -20,7 +20,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BhanukaDev/fireng.git",
+    "url": "https://github.com/BhanukaDev/fireng.git",
     "directory": "projects/core"
   },
   "peerDependencies": {
