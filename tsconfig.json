@@ -3,7 +3,7 @@
   "compilerOptions": {
     "paths": {
       "@fireng/core": ["./projects/core/src/public-api"],
-      "layout": ["./dist/layout"]
+      "@fireng/layout": ["./projects/layout/src/public-api"]
     },
     "outDir": "./dist/out-tsc",
     "strict": true,

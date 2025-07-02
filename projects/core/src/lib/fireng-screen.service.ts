@@ -7,7 +7,7 @@ import {
   signal,
   WritableSignal,
 } from '@angular/core';
-import { FirengBreakpoints } from './fireng.types';
+import { FirengBreakpoints, FirengResponsiveMap } from './fireng.types';
 import { FIRENG_BREAKPOINTS } from './fireng.token';
 import { auditTime, fromEvent } from 'rxjs';
 
@@ -169,4 +169,41 @@ export class FirengScreenService {
   public readonly isPortrait: Signal<boolean> = computed(() => {
     return this._windowHeight() > this._windowWidth();
   });
+
+  /**
+   * Resolves a responsive value from a map based on current active breakpoints.
+   *
+   * It applies cascading logic: the value for the largest active breakpoint in `valueMap` is returned.
+   * If no match is found, the `fallback` value is returned.
+   *
+   * @template T The type of the value (e.g., `number`, `string`).
+   * @param valueMap An object mapping breakpoint names to values (e.g., `{ xs: 5, md: 10 }`).
+   * @param fallback An optional default value if no matching breakpoint is found.
+   * @returns A signal emitting the resolved value, or `fallback`, or `undefined`.
+   *
+   * @example
+   * // Get items per page: 5 for xs, 10 for md and up, default 5
+   * const itemsPerPage = this.screenService.resolveBreakpointValue({ xs: 5, md: 10 }, 5);
+   */
+  public resolveBreakpointValue<T>(
+    valueMap: FirengResponsiveMap<T>,
+    fallback?: T
+  ): Signal<T | undefined> {
+    return computed(() => {
+      const activeBreakpoints = this.activeBreakpoints();
+
+      let selectedValue: T | undefined;
+      for (const breakpoint of activeBreakpoints) {
+        if (valueMap.hasOwnProperty(breakpoint)) {
+          selectedValue = valueMap[breakpoint];
+        }
+      }
+
+      if (selectedValue === undefined) {
+        return fallback;
+      }
+
+      return selectedValue;
+    });
+  }
 }

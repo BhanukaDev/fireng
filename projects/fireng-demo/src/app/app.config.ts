@@ -6,7 +6,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideFirengBreakpoints({
       mobile: 0,
-      tablet: 768,
+      tablet: 568,
       desktop: 992,
       largeDesktop: 1200,
     }),

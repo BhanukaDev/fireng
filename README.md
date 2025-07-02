@@ -19,4 +19,4 @@ We welcome contributions from the community! Whether it's bug reports, feature r
 
 ## License
 
-This project is licensed under the [MIT License][LICENSE.md]
+This project is licensed under the [MIT License](LICENSE.md)
