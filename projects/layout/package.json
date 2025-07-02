@@ -1,6 +1,6 @@
 {
   "name": "@fireng/layout",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Angular directives for responsive layout and visual adjustments using Fireng breakpoints.",
   "keywords": [
     "angular",
@@ -36,6 +36,7 @@
   },
   "sideEffects": false,
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
