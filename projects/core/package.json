@@ -1,6 +1,6 @@
 {
   "name": "@fireng/core",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Core utilities for Fireng Angular responsive library.",
   "author": {
     "name": "Bhanuka Dassanayake",
@@ -20,7 +20,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BhanukaDev/fireng.git",
+    "url": "git+https://github.com/BhanukaDev/fireng.git",
     "directory": "projects/core"
   },
   "peerDependencies": {
@@ -35,6 +35,6 @@
   "sideEffects": false,
   "publishConfig": {
     "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com/"
   }
 }
