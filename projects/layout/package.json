@@ -28,7 +28,8 @@
   },
   "peerDependencies": {
     "@angular/common": "^18.2.0",
-    "@angular/core": "^18.2.0"
+    "@angular/core": "^18.2.0",
+    "@fireng/core": "^1.2.2"
   },
   "dependencies": {
     "tslib": "^2.3.0"
