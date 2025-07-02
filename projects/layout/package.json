@@ -12,7 +12,9 @@
     "spacing",
     "typography",
     "breakpoints",
-    "fireng"
+    "fireng",
+    "fireFlex",
+    "fireGrid"
   ],
   "author": {
     "name": "Bhanuka Dassanayake",
