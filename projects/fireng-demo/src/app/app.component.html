@@ -1,2 +1,16 @@
 <h3>Responsive Values Demo</h3>
 <p>Items per row: {{ itemsPerRow() }}</p>
+
+<div
+  fireFlex
+  [justify]="{
+    mobile: 'center',
+    tablet: 'space-between',
+    desktop: 'space-around',
+  }"
+  gap="8px"
+>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+</div>

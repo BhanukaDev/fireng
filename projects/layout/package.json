@@ -1,6 +1,6 @@
 {
   "name": "@fireng/layout",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Angular directives for responsive layout and visual adjustments using Fireng breakpoints.",
   "keywords": [
     "angular",
@@ -12,7 +12,9 @@
     "spacing",
     "typography",
     "breakpoints",
-    "fireng"
+    "fireng",
+    "fireFlex",
+    "fireGrid"
   ],
   "author": {
     "name": "Bhanuka Dassanayake",
@@ -26,7 +28,8 @@
   },
   "peerDependencies": {
     "@angular/common": "^18.2.0",
-    "@angular/core": "^18.2.0"
+    "@angular/core": "^18.2.0",
+    "@fireng/core": "^1.2.2"
   },
   "dependencies": {
     "tslib": "^2.3.0"
