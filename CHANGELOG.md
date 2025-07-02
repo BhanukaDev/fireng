@@ -1,5 +1,7 @@
 # Changelog
 
+## <small>0.0.2 (2025-07-02)</small>
+
 ## <small>0.0.1 (2025-07-02)</small>
 
 * fix: added release scripts ([10fb08f](https://github.com/BhanukaDev/fireng/commit/10fb08f))
