@@ -2,10 +2,10 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      // "@fireng/core": ["./projects/core/src/public-api"],
-      // "@fireng/layout": ["./projects/layout/src/public-api"]
-      "@fireng/core": ["./dist/core"],
-      "@fireng/layout": ["./dist/layout"]
+      "@fireng/core": ["./projects/core/src/public-api"],
+      "@fireng/layout": ["./projects/layout/src/public-api"]
+      // "@fireng/core": ["./dist/core"],
+      // "@fireng/layout": ["./dist/layout"]
     },
     "outDir": "./dist/out-tsc",
     "strict": true,

@@ -7,6 +7,7 @@ import {
   FirengFlexWrap,
   FirengJustifyContent,
 } from './fireng.types';
+import { FirengJustifyContentDirective } from './fireng-justify-content.directive';
 
 @Directive({
   selector: '[fireFlex]',
@@ -20,6 +21,12 @@ import {
     '[style.alignContent]': 'activeAlignContent()',
     '[style.gap]': 'activeGap()',
   },
+  hostDirectives: [
+    {
+      directive: FirengJustifyContentDirective,
+      inputs: ['justify'],
+    },
+  ],
 })
 export class FirengFlexDirective {
   private readonly screenService = inject(FirengScreenService);
@@ -50,19 +57,6 @@ export class FirengFlexDirective {
   public wrap = input<FirengFlexWrap | FirengResponsiveMap<FirengFlexWrap>>(
     'nowrap'
   );
-
-  /**
-   * Aligns flex items along the main axis of the current line.
-   * @defaultValue 'flex-start'
-   * @example
-   * // Static:
-   * <div fireFlex justify="center">...</div>
-   * // Responsive:
-   * <div fireFlex [justify]="{ sm: 'flex-start', md: 'space-between' }">...</div>
-   */
-  public justify = input<
-    FirengJustifyContent | FirengResponsiveMap<FirengJustifyContent>
-  >('flex-start');
 
   /**
    * Aligns flex items along the cross axis of the current line.
@@ -126,10 +120,6 @@ export class FirengFlexDirective {
 
   protected readonly activeWrap = computed(() =>
     this.resolveResponsiveValue(this.wrap(), 'nowrap')
-  );
-
-  protected readonly activeJustify = computed(() =>
-    this.resolveResponsiveValue(this.justify(), 'flex-start')
   );
 
   protected readonly activeAlignItems = computed(() =>

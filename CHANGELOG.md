@@ -1,5 +1,13 @@
 # Changelog
 
+## <small>0.0.3 (2025-07-02)</small>
+
+* fix: .npmrc file ([2080725](https://github.com/BhanukaDev/fireng/commit/2080725))
+* fix: fix repository url in core's package.json ([fb47231](https://github.com/BhanukaDev/fireng/commit/fb47231))
+* fix: github pkg ([669f2cc](https://github.com/BhanukaDev/fireng/commit/669f2cc))
+* fix: npmrc ([3560a81](https://github.com/BhanukaDev/fireng/commit/3560a81))
+* fix: remove github package registry and instead using npm registry. ([5d1d720](https://github.com/BhanukaDev/fireng/commit/5d1d720))
+
 ## <small>0.0.2 (2025-07-02)</small>
 
 ## <small>0.0.1 (2025-07-02)</small>
