@@ -1,0 +1,109 @@
+import { computed, Directive, inject, input } from '@angular/core';
+import { FirengResponsiveMap, FirengScreenService } from '@fireng/core';
+import {
+  FirengAlignContent,
+  FirengAlignItems,
+  FirengFlexDirection,
+  FirengFlexWrap,
+} from '../fireng.types';
+import { FirengJustifyContentDirective } from '../atomic-directives/fireng-justify-content.directive';
+import { FirengFlexDirectionDirective } from '../atomic-directives/fireng-flex-direction.directive';
+import { FirengFlexWrapDirective } from '../atomic-directives/fireng-flex-wrap.directive';
+
+@Directive({
+  selector: '[fireFlex]',
+  standalone: true,
+  host: {
+    '[style.display]': '"flex"',
+    '[style.flexDirection]': 'activeDirection()',
+    '[style.flexWrap]': 'activeWrap()',
+    '[style.justifyContent]': 'activeJustify()',
+    '[style.alignItems]': 'activeAlignItems()',
+    '[style.alignContent]': 'activeAlignContent()',
+    '[style.gap]': 'activeGap()',
+  },
+  hostDirectives: [
+    {
+      directive: FirengJustifyContentDirective,
+      inputs: ['fireJustifyContent: justifyContent'],
+    },
+    {
+      directive: FirengFlexDirectionDirective,
+      inputs: ['fireFlexDirection: flexDirection'],
+    },
+    {
+      directive: FirengFlexWrapDirective,
+      inputs: ['fireFlexWrap: flexWrap', 'fireFlexWrap: wrap'],
+    },
+  ],
+})
+export class FirengFlexDirective {
+  private readonly screenService = inject(FirengScreenService);
+
+  /**
+   * Aligns flex items along the cross axis of the current line.
+   * @defaultValue 'stretch'
+   * @example
+   * // Static:
+   * <div fireFlex alignItems="center">...</div>
+   * // Responsive:
+   * <div fireFlex [alignItems]="{ xs: 'stretch', md: 'center' }">...</div>
+   */
+  public alignItems = input<
+    FirengAlignItems | FirengResponsiveMap<FirengAlignItems>
+  >('stretch');
+
+  /**
+   * Aligns a flex container's lines within the flex container when there is extra space
+   * in the cross-axis. This property has no effect when `flex-wrap` is `nowrap`.
+   * @defaultValue 'stretch'
+   * @example
+   * // Static:
+   * <div fireFlex alignContent="space-around">...</div>
+   * // Responsive:
+   * <div fireFlex [alignContent]="{ sm: 'flex-start', lg: 'space-around' }">...</div>
+   */
+  public alignContent = input<
+    FirengAlignContent | FirengResponsiveMap<FirengAlignContent>
+  >('stretch');
+
+  /**
+   * Sets the gap (gutters) between rows and columns.
+   * It is a shorthand for `row-gap` and `column-gap`.
+   * Accepts any valid CSS length value (e.g., '10px', '1rem', '2%').
+   * @defaultValue '0px'
+   * @example
+   * // Static:
+   * <div fireFlex gap="1rem">...</div>
+   * // Responsive:
+   * <div fireFlex [gap]="{ xs: '0.5rem', md: '1.5rem' }">...</div>
+   */
+  public gap = input<string | FirengResponsiveMap<string>>('0px');
+
+  // Generic helper method to resolve responsive values
+  private resolveResponsiveValue = <T>(
+    value: T | FirengResponsiveMap<T>,
+    defaultValue: T
+  ): T => {
+    if (typeof value !== 'object' || value === null) {
+      return value as T;
+    }
+    const resolved = this.screenService.resolveBreakpointValue<T>(
+      value as FirengResponsiveMap<T>,
+      defaultValue
+    )();
+    return resolved === undefined ? defaultValue : resolved;
+  };
+
+  protected readonly activeAlignItems = computed(() =>
+    this.resolveResponsiveValue(this.alignItems(), 'stretch')
+  );
+
+  protected readonly activeAlignContent = computed(() =>
+    this.resolveResponsiveValue(this.alignContent(), 'stretch')
+  );
+
+  protected readonly activeGap = computed(() =>
+    this.resolveResponsiveValue(this.gap(), '0px')
+  );
+}
