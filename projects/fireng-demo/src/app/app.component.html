@@ -3,10 +3,15 @@
 
 <div
   fireFlex
-  [justify]="{
+  [justifyContent]="{
     mobile: 'center',
     tablet: 'space-between',
     desktop: 'space-around',
+  }"
+  [flexDirection]="{
+    mobile: 'column',
+    tablet: 'row',
+    desktop: 'row-reverse',
   }"
   gap="8px"
 >

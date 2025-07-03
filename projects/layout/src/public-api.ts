@@ -1,2 +1,2 @@
-export * from './lib/fireng-flex.directive';
+export * from './lib/property-directive/fireng-flex.directive';
 export * from './lib/fireng.types';
