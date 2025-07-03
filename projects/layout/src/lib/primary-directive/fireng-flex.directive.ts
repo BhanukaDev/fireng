@@ -9,18 +9,13 @@ import {
 import { FirengJustifyContentDirective } from '../atomic-directives/fireng-justify-content.directive';
 import { FirengFlexDirectionDirective } from '../atomic-directives/fireng-flex-direction.directive';
 import { FirengFlexWrapDirective } from '../atomic-directives/fireng-flex-wrap.directive';
+import { FirengGapDirective } from '../atomic-directives/fireng-gap-directive';
 
 @Directive({
   selector: '[fireFlex]',
   standalone: true,
   host: {
     '[style.display]': '"flex"',
-    '[style.flexDirection]': 'activeDirection()',
-    '[style.flexWrap]': 'activeWrap()',
-    '[style.justifyContent]': 'activeJustify()',
-    '[style.alignItems]': 'activeAlignItems()',
-    '[style.alignContent]': 'activeAlignContent()',
-    '[style.gap]': 'activeGap()',
   },
   hostDirectives: [
     {
@@ -33,7 +28,11 @@ import { FirengFlexWrapDirective } from '../atomic-directives/fireng-flex-wrap.d
     },
     {
       directive: FirengFlexWrapDirective,
-      inputs: ['fireFlexWrap: flexWrap', 'fireFlexWrap: wrap'],
+      inputs: ['fireFlexWrap: flexWrap'],
+    },
+    {
+      directive: FirengGapDirective,
+      inputs: ['fireGap: gap'],
     },
   ],
 })
@@ -67,19 +66,6 @@ export class FirengFlexDirective {
     FirengAlignContent | FirengResponsiveMap<FirengAlignContent>
   >('stretch');
 
-  /**
-   * Sets the gap (gutters) between rows and columns.
-   * It is a shorthand for `row-gap` and `column-gap`.
-   * Accepts any valid CSS length value (e.g., '10px', '1rem', '2%').
-   * @defaultValue '0px'
-   * @example
-   * // Static:
-   * <div fireFlex gap="1rem">...</div>
-   * // Responsive:
-   * <div fireFlex [gap]="{ xs: '0.5rem', md: '1.5rem' }">...</div>
-   */
-  public gap = input<string | FirengResponsiveMap<string>>('0px');
-
   // Generic helper method to resolve responsive values
   private resolveResponsiveValue = <T>(
     value: T | FirengResponsiveMap<T>,
@@ -101,9 +87,5 @@ export class FirengFlexDirective {
 
   protected readonly activeAlignContent = computed(() =>
     this.resolveResponsiveValue(this.alignContent(), 'stretch')
-  );
-
-  protected readonly activeGap = computed(() =>
-    this.resolveResponsiveValue(this.gap(), '0px')
   );
 }
