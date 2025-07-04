@@ -9,9 +9,6 @@ import { FirengAlignContentDirective } from '../atomic-directives/fireng-align-c
 @Directive({
   selector: '[fireBox]',
   standalone: true,
-  host: {
-    '[style.display]': '"flex"',
-  },
   hostDirectives: [
     {
       directive: FirengJustifyContentDirective,
