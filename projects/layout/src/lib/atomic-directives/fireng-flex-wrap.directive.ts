@@ -11,22 +11,25 @@ import { FirengResponsiveMap, FirengScreenService } from '@fireng/core';
 })
 export class FirengFlexWrapDirective {
   /**
-   * Defines how flex items are placed in the flex container.
+   * Defines how flex items are placed in the flex container, allowing them to
+   * wrap onto multiple lines.
    * Accepted values for flexWrap are:
    * - `nowrap`: All flex items will be on one line.
    * - `wrap`: Flex items will wrap onto multiple lines.
    * - `wrap-reverse`: Flex items will wrap onto multiple lines in reverse order.
-   * - `inherit`: Inherits the flex-wrap from its parent element.
-   * - `initial`: Sets the flex-wrap to its default value as defined by the CSS specification.
-   * - `unset`: Behaves as `inherit` if the property is inherited, otherwise as `initial`.
-   * - `revert`: Resets the property to its value from the user-agent stylesheet or user-defined styles.
+   *
+   * Global CSS values are also accepted: `inherit`, `initial`, `unset`, `revert`.
+   *
+   * For more details on the flex-wrap property, refer to the MDN documentation:
+   * @see [MDN - flex-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap)
    *
    * Can also be provided as a responsive map for different screen sizes.
    * @example
    * // Static usage:
    * <div fireFlexWrap="wrap">...</div>
+   * <div fireFlexWrap="initial">...</div>
    * // Responsive usage:
-   * <div fireFlexWrap="{ xs: `nowrap`, sm: `wrap`, md: `wrap-reverse`, lg: `unset` }">...</div>
+   * <div fireFlexWrap="{ xs: 'nowrap', sm: 'wrap', md: 'wrap-reverse', lg: 'unset' }">...</div>
    * @defaultValue `nowrap`
    */
   public flexWrap = input<FirengFlexWrap | FirengResponsiveMap<FirengFlexWrap>>(

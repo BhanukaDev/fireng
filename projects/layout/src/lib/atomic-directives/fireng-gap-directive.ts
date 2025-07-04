@@ -13,24 +13,27 @@ export class FirengGapDirective {
   /**
    * Defines the gap (gutters) between rows and columns in flex and grid layouts.
    * This is a shorthand for `row-gap` and `column-gap`.
-   * Accepted values for gap are:
-   * - A single CSS length value (e.g., `10px`, `1em`, `2%`, `auto`). This applies to both row and column gaps.
-   * - Two CSS length values (e.g., `10px 20px`). The first value sets the row gap, the second sets the column gap.
-   * - `inherit`: Inherits the gap from its parent element.
-   * - `initial`: Sets the gap to its default value as defined by the CSS specification (usually `0px`).
-   * - `unset`: Behaves as `inherit` if the property is inherited, otherwise as `initial`.
-   * - `revert`: Resets the property to its value from the user-agent stylesheet or user-defined styles.
+   * Accepted values for gap are any valid CSS <length> or <percentage> value,
+   * which can be a single value (for both row and column gap) or two values
+   * (first for row-gap, second for column-gap).
+   *
+   * Global CSS values are also accepted: `inherit`, `initial`, `unset`, `revert`.
+   *
+   * For more details on the gap property, refer to the MDN documentation:
+   * @see [MDN - gap](https://developer.mozilla.org/en-US/docs/Web/CSS/gap)
    *
    * Can also be provided as a responsive map for different screen sizes.
    * @example
    * // Static usage:
-   * <div fireGap="16px">...</div>
-   * <div fireGap="1em 2em">...</div>
+   * <div fireGap="20px">...</div>
+   * <div fireGap="1em 0.5em">...</div>
+   * <div fireGap="calc(10% + 20px)">...</div>
+   * <div fireGap="unset">...</div> // Example with a global value
    * // Responsive usage:
-   * <div fireGap="{ xs: `8px`, sm: `16px`, md: `1em 2em`, lg: `inherit` }">...</div>
-   * @defaultValue `0px`
+   * <div fireGap="{ xs: '8px', sm: '1em 2em', md: '3vmin 2vmax', lg: 'inherit' }">...</div>
+   * @defaultValue `normal`
    */
-  public gap = input<FirengGap | FirengResponsiveMap<FirengGap>>('0px', {
+  public gap = input<FirengGap | FirengResponsiveMap<FirengGap>>('normal', {
     alias: 'fireGap',
   });
 

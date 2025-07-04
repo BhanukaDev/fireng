@@ -18,17 +18,19 @@ export class FirengFlexDirectionDirective {
    * - `column`: Items are placed in a column, from top to bottom.
    * - `row-reverse`: Items are placed in a row, from right to left in LTR context.
    * - `column-reverse`: Items are placed in a column, from bottom to top.
-   * - `inherit`: Inherits the flex-direction from its parent element.
-   * - `initial`: Sets the flex-direction to its default value as defined by the CSS specification.
-   * - `unset`: Behaves as `inherit` if the property is inherited, otherwise as `initial`.
-   * - `revert`: Resets the property to its value from the user-agent stylesheet or user-defined styles.
+   *
+   * Global CSS values are also accepted: `inherit`, `initial`, `unset`, `revert`.
+   *
+   * For more details on the flex-direction property, refer to the MDN documentation:
+   * @see [MDN - flex-direction](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)
    *
    * Can also be provided as a responsive map for different screen sizes.
    * @example
    * // Static usage:
    * <div fireFlexDirection="column">...</div>
+   * <div fireFlexDirection="unset">...</div>
    * // Responsive usage:
-   * <div fireFlexDirection="{ sm: `row`, md: `column-reverse`, lg: `inherit` }">...</div>
+   * <div fireFlexDirection="{ sm: 'row', md: 'column-reverse', lg: 'inherit' }">...</div>
    * @defaultValue `row`
    */
   public flexDirection = input<

@@ -11,27 +11,44 @@ import { FirengJustifyContent } from '@fireng/layout';
 })
 export class FirengJustifyContentDirective {
   /**
-   * Defines how flex items are placed in the flex container.
-   * Accepted values for flexWrap are:
-   * - `nowrap`: All flex items will be on one line.
-   * - `wrap`: Flex items will wrap onto multiple lines.
-   * - `wrap-reverse`: Flex items will wrap onto multiple lines in reverse order.
-   * - `inherit`: Inherits the flex-wrap from its parent element.
-   * - `initial`: Sets the flex-wrap to its default value as defined by the CSS specification.
-   * - `unset`: Behaves as `inherit` if the property is inherited, otherwise as `initial`.
-   * - `revert`: Resets the property to its value from the user-agent stylesheet or user-defined styles.
+   * Defines how flex items are distributed along the main axis of their container,
+   * after any flexible lengths and auto margins have been applied.
+   * Accepted values for justifyContent are:
+   * - `flex-start`: Items are packed towards the start of the flex-direction.
+   * - `flex-end`: Items are packed towards the end of the flex-direction.
+   * - `center`: Items are centered along the main axis.
+   * - `space-between`: Items are evenly distributed with the first item at the start
+   * and the last item at the end.
+   * - `space-around`: Items are evenly distributed with equal space around them.
+   * - `space-evenly`: Items are evenly distributed with equal space around them,
+   * including the space at the ends.
+   *
+   * Other accepted values include:
+   * `start`, `end`, `left`, `right`, `normal`, `stretch`,
+   * `safe center`, `unsafe center`.
+   *
+   * This input also accepts values from `FirengCssOverflowAlignment` (e.g., `safe`, `unsafe`)
+   * when combined with alignment keywords (like `center`).
+   *
+   * Global CSS values are also accepted: `inherit`, `initial`, `unset`, `revert`.
+   *
+   * For more details on the justify-content property, refer to the MDN documentation:
+   * @see [MDN - justify-content](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)
    *
    * Can also be provided as a responsive map for different screen sizes.
    * @example
    * // Static usage:
-   * <div fireFlexWrap="wrap">...</div>
+   * <div fireJustifyContent="center">...</div>
+   * <div fireJustifyContent="space-between">...</div>
+   * <div fireJustifyContent="safe center">...</div>
+   * <div fireJustifyContent="unset">...</div> // Example with a global value
    * // Responsive usage:
-   * <div fireFlexWrap="{ xs: `nowrap`, sm: `wrap`, md: `wrap-reverse`, lg: `unset` }">...</div>
-   * @defaultValue `nowrap`
+   * <div fireJustifyContent="{ xs: 'flex-start', sm: 'center', md: 'space-between', lg: 'inherit' }">...</div>
+   * @defaultValue `normal`
    */
   public justifyContent = input<
     FirengJustifyContent | FirengResponsiveMap<FirengJustifyContent>
-  >('flex-start', { alias: 'fireJustifyContent' });
+  >('normal', { alias: 'fireJustifyContent' });
 
   private readonly screenService = inject(FirengScreenService);
 
@@ -43,7 +60,7 @@ export class FirengJustifyContentDirective {
     } else {
       const resolvedValue = this.screenService.resolveBreakpointValue(
         justify,
-        'flex-start' // Default value if no breakpoint matches
+        'normal' // Default value if no breakpoint matches
       );
       return resolvedValue();
     }

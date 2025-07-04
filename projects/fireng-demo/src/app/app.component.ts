@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, effect, signal, Signal } from '@angular/core';
 import { FirengScreenService } from '@fireng/core';
-import { FirengFlexDirective } from '@fireng/layout';
+import { FirengFlexDirective, FirengJustifyContent } from '@fireng/layout';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,7 @@ import { FirengFlexDirective } from '@fireng/layout';
 export class AppComponent {
   title = 'fireng-demo';
   itemsPerRow: Signal<number | undefined>;
+
   constructor(public screenService: FirengScreenService) {
     this.itemsPerRow = this.screenService.resolveBreakpointValue(
       {

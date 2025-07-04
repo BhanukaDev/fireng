@@ -1,15 +1,11 @@
 import { computed, Directive, inject, input } from '@angular/core';
 import { FirengResponsiveMap, FirengScreenService } from '@fireng/core';
-import {
-  FirengAlignContent,
-  FirengAlignItems,
-  FirengFlexDirection,
-  FirengFlexWrap,
-} from '../fireng.types';
+import { FirengAlignContent } from '../fireng.types';
 import { FirengJustifyContentDirective } from '../atomic-directives/fireng-justify-content.directive';
 import { FirengFlexDirectionDirective } from '../atomic-directives/fireng-flex-direction.directive';
 import { FirengFlexWrapDirective } from '../atomic-directives/fireng-flex-wrap.directive';
 import { FirengGapDirective } from '../atomic-directives/fireng-gap-directive';
+import { FirengAlignItemDirective } from '../atomic-directives/fireng-align-item.directive';
 
 @Directive({
   selector: '[fireFlex]',
@@ -34,23 +30,14 @@ import { FirengGapDirective } from '../atomic-directives/fireng-gap-directive';
       directive: FirengGapDirective,
       inputs: ['fireGap: gap'],
     },
+    {
+      directive: FirengAlignItemDirective,
+      inputs: ['fireAlignItems: alignItems'],
+    },
   ],
 })
 export class FirengFlexDirective {
   private readonly screenService = inject(FirengScreenService);
-
-  /**
-   * Aligns flex items along the cross axis of the current line.
-   * @defaultValue 'stretch'
-   * @example
-   * // Static:
-   * <div fireFlex alignItems="center">...</div>
-   * // Responsive:
-   * <div fireFlex [alignItems]="{ xs: 'stretch', md: 'center' }">...</div>
-   */
-  public alignItems = input<
-    FirengAlignItems | FirengResponsiveMap<FirengAlignItems>
-  >('stretch');
 
   /**
    * Aligns a flex container's lines within the flex container when there is extra space
@@ -80,10 +67,6 @@ export class FirengFlexDirective {
     )();
     return resolved === undefined ? defaultValue : resolved;
   };
-
-  protected readonly activeAlignItems = computed(() =>
-    this.resolveResponsiveValue(this.alignItems(), 'stretch')
-  );
 
   protected readonly activeAlignContent = computed(() =>
     this.resolveResponsiveValue(this.alignContent(), 'stretch')
