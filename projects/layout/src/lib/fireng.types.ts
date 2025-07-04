@@ -141,3 +141,48 @@ export type FirengFlexWrap =
  * (first for row-gap, second for column-gap).
  */
 export type FirengGap = string | FirengGlobalCssValues;
+
+/**
+ * Accepted values for display are:
+ * - `block`: The element generates a block-level box.
+ * - `inline`: The element generates an inline-level box.
+ * - `inline-block`: The element generates a block-level box that flows with surrounding content as if it were a single inline box.
+ * - `flex`: The element generates a block-level flex container.
+ * - `inline-flex`: The element generates an inline-level flex container.
+ * - `grid`: The element generates a block-level grid container.
+ * - `inline-grid`: The element generates an inline-level grid container.
+ * - `none`: The element and its descendants are hidden, and it takes up no space.
+ * - `contents`: The element itself does not generate any boxes, but its children and pseudo-elements still generate boxes.
+ *
+ * Other accepted values include: `flow-root`, `block flex`, `block flow`, `block flow-root`,
+ * `block grid`, `inline flex`, `inline flow`, `inline flow-root`, `inline grid`,
+ * `table`, `table-row`, `list-item`.
+ *
+ * Global CSS values are also accepted: `inherit`, `initial`, `unset`, `revert`.
+ *
+ * For more details on the display property, refer to the MDN documentation:
+ * @see [MDN - display](https://developer.mozilla.org/en-US/docs/Web/CSS/display)
+ */
+export type FirengDisplay =
+  | 'block'
+  | 'inline'
+  | 'inline-block'
+  | 'flex'
+  | 'inline-flex'
+  | 'grid'
+  | 'inline-grid'
+  | 'flow-root'
+  | 'none'
+  | 'contents'
+  | 'block flex'
+  | 'block flow'
+  | 'block flow-root'
+  | 'block grid'
+  | 'inline flex'
+  | 'inline flow'
+  | 'inline flow-root'
+  | 'inline grid'
+  | 'table'
+  | 'table-row'
+  | 'list-item'
+  | FirengGlobalCssValues;

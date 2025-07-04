@@ -1,12 +1,13 @@
 <h3>Responsive Values Demo</h3>
-<p>Items per row: {{ itemsPerRow() }}</p>
+<p>Items per row: {{ title() }}</p>
 
-<div
+<!-- <div
   fireBox
   gap="10px"
-  style="height: 800px; background-color: red"
   flexDirection="row"
   flexWrap="wrap"
+  justifyContent="center"
+  display="flex"
   [alignContent]="{ mobile: 'space-between', tablet: 'space-evenly' }"
 >
   <div class="box"></div>
@@ -15,4 +16,19 @@
   <div class="box"></div>
   <div class="box"></div>
   <div class="box"></div>
+</div> -->
+<div
+  fireBox
+  display="flex"
+  [flexDirection]="{ xs: 'column', md: 'row' }"
+  [justifyContent]="{
+    xs: 'flex-start',
+    md: 'space-between',
+    lg: 'space-around'
+  }"
+  [gap]="{ xs: '0.5rem', md: '1rem', lg: '2rem' }"
+>
+  <span>Small Screen</span>
+  <span>Medium Screen</span>
+  <span>Large Screen</span>
 </div>

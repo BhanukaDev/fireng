@@ -11,18 +11,9 @@ import { FirengBoxDirective, FirengJustifyContent } from '@fireng/layout';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'fireng-demo';
-  itemsPerRow: Signal<number | undefined>;
+  title;
 
   constructor(public screenService: FirengScreenService) {
-    this.itemsPerRow = this.screenService.resolveBreakpointValue(
-      {
-        mobile: 1,
-        tablet: 2,
-        desktop: 3,
-        largeDesktop: 4,
-      },
-      1
-    );
+    this.title = screenService.currentBreakpoint;
   }
 }
