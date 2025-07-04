@@ -2,12 +2,12 @@
 <p>Items per row: {{ itemsPerRow() }}</p>
 
 <div
-  fireFlex
+  fireBox
   gap="10px"
-  alignItems="center"
   style="height: 800px; background-color: red"
-  flexDirection="column"
-  justifyContent="space-between"
+  flexDirection="row"
+  flexWrap="wrap"
+  [alignContent]="{ mobile: 'space-between', tablet: 'space-evenly' }"
 >
   <div class="box"></div>
   <div class="box"></div>

@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, effect, signal, Signal } from '@angular/core';
 import { FirengScreenService } from '@fireng/core';
-import { FirengFlexDirective, FirengJustifyContent } from '@fireng/layout';
+import { FirengBoxDirective, FirengJustifyContent } from '@fireng/layout';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, FirengFlexDirective],
+  imports: [CommonModule, FirengBoxDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

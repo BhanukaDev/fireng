@@ -87,7 +87,22 @@ export type FirengAlignItems =
   | FirengGlobalCssValues;
 
 /**
- * Defines the possible values for CSS align-self.
+ * Accepted values for alignContent are:
+ * - `stretch`: Lines stretch to take up the remaining space.
+ * - `flex-start`: Lines are packed towards the start of the cross axis.
+ * - `flex-end`: Lines are packed towards the end of the cross axis.
+ * - `center`: Lines are centered along the cross axis.
+ * - `space-between`: Lines are evenly distributed with the first line at the start
+ * and the last line at the end.
+ * - `space-around`: Lines are evenly distributed with equal space around them.
+ * Note: The space between lines is double the space at the ends.
+ * - `space-evenly`: Lines are evenly distributed with equal space around them,
+ * including the space at the ends.
+ *
+ * Other accepted values include: `normal`, `start`, `end`, `self-start`, `self-end`,
+ * `anchor-center`, `first baseline`, `last baseline`, `safe center`, `unsafe center`.
+ *
+ * Global CSS values are also accepted: `inherit`, `initial`, `unset`, `revert`.
  */
 export type FirengAlignContent =
   | 'stretch'
@@ -95,7 +110,15 @@ export type FirengAlignContent =
   | 'flex-end'
   | 'center'
   | 'space-between'
+  | 'space-evenly'
   | 'space-around'
+  | 'start'
+  | 'end'
+  | 'baseline'
+  | 'first baseline'
+  | 'last baseline'
+  | 'normal'
+  | FirengCssOverflowAlignment
   | FirengGlobalCssValues;
 
 /**
