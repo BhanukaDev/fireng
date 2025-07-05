@@ -106,6 +106,7 @@ Compositional directives like `fireBox` let you combine multiple styles easily:
 
 The `FirengBoxDirective` is a Angular directive for building responsive Flexbox layouts. It transforms any element into a Flexbox container, providing intuitive inputs to control its core layout and spacing.
 
+- `style` → sets inline styles
 - `display` → sets `display`
 - `flexDirection` → sets `flex-direction`
 - `flexWrap` → sets `flex-wrap`
