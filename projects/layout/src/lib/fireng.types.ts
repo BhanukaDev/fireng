@@ -186,3 +186,5 @@ export type FirengDisplay =
   | 'table-row'
   | 'list-item'
   | FirengGlobalCssValues;
+
+export type FirengStyle = Record<string, string | Record<string, string>>;

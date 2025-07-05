@@ -9,6 +9,7 @@ export * from './lib/atomic-directives/fireng-flex-direction.directive';
 export * from './lib/atomic-directives/fireng-flex-wrap.directive';
 export * from './lib/atomic-directives/fireng-gap-directive';
 export * from './lib/atomic-directives/fireng-display.directive';
+export * from './lib/atomic-directives/fireng-style.directive';
 
 // Types
 export * from './lib/fireng.types';

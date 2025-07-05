@@ -6,6 +6,7 @@ import { FirengGapDirective } from '../atomic-directives/fireng-gap-directive';
 import { FirengAlignItemDirective } from '../atomic-directives/fireng-align-item.directive';
 import { FirengAlignContentDirective } from '../atomic-directives/fireng-align-content.directive';
 import { FirengDisplayDirective } from '../atomic-directives/fireng-display.directive';
+import { FirengStyleDirective } from '@fireng/layout';
 
 @Directive({
   selector: '[fireBox]',

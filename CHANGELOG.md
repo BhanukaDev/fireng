@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.0 (2025-07-04)
+
+* feat: added align content and types ([dae2459](https://github.com/BhanukaDev/fireng/commit/dae2459))
+* feat: added align items. ([113946d](https://github.com/BhanukaDev/fireng/commit/113946d))
+* feat: added css display and types. ([8dd93f1](https://github.com/BhanukaDev/fireng/commit/8dd93f1))
+* feat: added fireFlexWrap directive ([7cff6df](https://github.com/BhanukaDev/fireng/commit/7cff6df))
+* feat: added flex wrap directive ([3aa9c0e](https://github.com/BhanukaDev/fireng/commit/3aa9c0e))
+* feat: added gap directive ([58c2d26](https://github.com/BhanukaDev/fireng/commit/58c2d26))
+* feat: justify content directive ([2e9c539](https://github.com/BhanukaDev/fireng/commit/2e9c539))
+* fix: renamed fireFlex to fireBox ([7cd10e1](https://github.com/BhanukaDev/fireng/commit/7cd10e1))
+
 ## <small>0.0.3 (2025-07-02)</small>
 
 * fix: .npmrc file ([2080725](https://github.com/BhanukaDev/fireng/commit/2080725))

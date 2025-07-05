@@ -32,13 +32,20 @@ Make sure `@fireng/core` is also installed, since it’s a required dependency.
 
 ## Quick Example
 
-Here’s a simple Flexbox layout using a compositional directive:
+Here’s a basic example showing how to style an element responsively using `fireStyle`.
 
 ```html
-<div fireBox display="flex" [flexDirection]="{ xs: 'column', md: 'row' }" gap="1rem">
-  <div>Item 1</div>
-  <div>Item 2</div>
-</div>
+<span
+  [fireStyle]="{
+      color: 'white',
+      backgroundColor: '#007bff',
+      fontSize: { xs: '16px', sm: '24px' },
+      padding: '10px 20px',
+      borderRadius: '5px'
+    }"
+>
+  Responsive Text
+</span>
 ```
 
 ## Usage
@@ -97,7 +104,7 @@ Compositional directives like `fireBox` let you combine multiple styles easily:
 
 #### `FirengBoxDirective` (`[fireBox]`)
 
-Turns any element into a responsive Flexbox container. It combines several atomic directives like:
+The `FirengBoxDirective` is a Angular directive for building responsive Flexbox layouts. It transforms any element into a Flexbox container, providing intuitive inputs to control its core layout and spacing.
 
 - `display` → sets `display`
 - `flexDirection` → sets `flex-direction`
@@ -120,6 +127,7 @@ These inputs are reactive and will update automatically when the screen size cha
 
 Use these to control individual CSS properties:
 
+- **`[fireStyle]`** – Responsive binding for inline styles like `color`, `fontSize`, etc., supporting both static and per-breakpoint values.
 - **`[fireDisplay]`** – Sets the `display` value (e.g., `flex`, `grid`, `none`)
 - **`[fireFlexDirection]`** – Sets `flex-direction`
 - **`[fireFlexWrap]`** – Sets `flex-wrap`
@@ -138,7 +146,6 @@ More compositional directives will be added soon:
 
 - **`[fireGrid]`** – Grid layouts with responsive columns and rows
 - **`[fireSpacing]`** – Easy responsive padding and margin
-- **`[fireStyle]`** – Applies responsive custom CSS styles.
 - **`[fireText]`** – Responsive control of font size, weight, color, and alignment
 
 These inputs are reactive and will update automatically when the screen size changes.
