@@ -187,4 +187,12 @@ export type FirengDisplay =
   | 'list-item'
   | FirengGlobalCssValues;
 
+/**
+ * This input accepts a plain JavaScript object (a map) where:
+ * - Keys are standard CSS property names in **camelCase** (e.g., `backgroundColor`, `fontSize`, `padding`, `borderLeft`).
+ *
+ * Values for these properties can be:
+ * - A static CSS value string (e.g., `'red'`, `'10px'`, `'flex'`, `'inherit'`).
+ * - A `FirengResponsiveMap<string>` object for breakpoint-specific styling (e.g., `{ xs: '16px', sm: '24px' }`).
+ */
 export type FirengStyle = Record<string, string | Record<string, string>>;
